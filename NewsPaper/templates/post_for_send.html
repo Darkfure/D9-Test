@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Здравствуйте!</h2>
+    <p> В категории {{ instance.category.name }} появилась новость: {{ instance.heading }} </p>
+    <p> Ее краткое содержание: {{ instance.text|truncatechars:50 }} </p>
+</body>
+</html>

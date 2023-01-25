@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.heading }}</h1>
+<h3>Дата публикации: {{ post.create_time|date:'d M Y' }}</h3>
+<h2>{{ post.text|censor }}</h2>
+<h5>Текущая дата: {{ time_now|date:'M d Y' }}</h5>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+   <h1>Последние новости</h1>
+
+   {# Добавляем форму, которая объединяет набор полей, которые будут отправляться в запросе #}
+   <form action="" method="get">
+       {# Переменная, которую мы передали через контекст, может сгенерировать нам форму с полями #}
+       {{ filterset.form.as_p }}
+       {# Добавим кнопку отправки данных формы #}
+       <input type="submit" value="Найти" />
+   </form>
+
+   <hr>
+       <table>
+           <tr>
+               <td>Заголовок</td>
+               <td>Дата публикации</td>
+               <td>Превью</td>
+           </tr>
+
+           {% for post in posts %}
+           <tr>
+               <td>{{ post.heading }}</td>
+               <td>{{ post.create_time|date:'d M Y' }}</td>
+               <td>{{ post.text|truncatechars:20 }}</td>
+           </tr>
+           {% endfor %}
+
+       </table>
+
+
+{% endblock content %}
